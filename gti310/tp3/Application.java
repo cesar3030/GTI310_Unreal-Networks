@@ -1,10 +1,12 @@
 package gti310.tp3;
 
+import gti310.tp3.writer.GraphReader;
+
 /**
  * The Application class defines a template method to call the elements to
- * solve the problem Unreal-Networks is façing.
+ * solve the problem Unreal-Networks is faï¿½ing.
  * 
- * @author François Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author Franï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public class Application {
 
@@ -18,6 +20,8 @@ public class Application {
 	 * @param args The array containing the arguments to the files.
 	 */
 	public static void main(String args[]) {
+		GraphReader gr = new GraphReader(args[1]);
+		System.out.println(gr.generateGraph().toString());
 		System.out.println("Unreal Networks Solver !");
 	}
 }
