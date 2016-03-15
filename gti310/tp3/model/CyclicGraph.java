@@ -1,9 +1,6 @@
 package gti310.tp3.model;
 
-import sun.rmi.rmic.iiop.ValueType;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,12 +28,26 @@ public class CyclicGraph extends Graph {
     }
 
     @Override
+    public ArrayList<Vertex> getNotVisitedNeighbours(Vertex v) {
+
+        ArrayList<Vertex> neighboursList = new ArrayList<Vertex>();
+
+        for( Vertex vertex : adjacencyList.get(v.getVertexNumber())){
+            if(!vertex.isAlreadyVisited())
+                neighboursList.add(vertex);
+        }
+        //TODO: SORT the list for the smallest to the greatest number
+        return (neighboursList.size()>0) ? neighboursList:null;
+    }
+
+    @Override
     public void addNeighbour(int sourceVertexNumber, int neighbourVertexNumber, int weight) {
         //We check that the source vertex is already in the adjacency list
         if(!adjacencyList.containsKey(sourceVertexNumber))
             addVertex(sourceVertexNumber);
 
         adjacencyList.get(sourceVertexNumber).add(new Vertex(neighbourVertexNumber,weight));
+        super.nbConnexions++;
     }
 
     @Override

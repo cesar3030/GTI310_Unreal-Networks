@@ -1,5 +1,7 @@
 package gti310.tp3.model;
 
+import java.util.ArrayList;
+
 /**
  * Graph Interface
  */
@@ -11,6 +13,8 @@ public abstract class Graph {
     protected double infiniteValue;
     //The Vertex where the graph starts
     protected int startVertex;
+    //Number of connections in the graph
+    protected int nbConnexions;
 
     /**
      * Default constructor
@@ -19,13 +23,21 @@ public abstract class Graph {
         this.nbVertices = 0;
         this.infiniteValue = Double.MAX_VALUE;
         this.startVertex = 0;
+        this.nbConnexions = 0;
     }
 
     /**
-     * Methode that adds a new vertex in the adjacency list.
+     * Method that adds a new vertex in the adjacency list.
      * @param vertexNumber Number of the vertex (it's ID)
      */
     public abstract void addVertex(int vertexNumber);
+
+    /**
+     * Method that return a list of vertices neighbours that haven't been visited yet
+     * @param v The vertex we want the neighbours
+     * @return vertices list or null if the list is empty
+     */
+    public abstract ArrayList<Vertex> getNotVisitedNeighbours(Vertex v);
 
     /**
      * Method that add a new neigbour relation between two vertex in the adjacency list including the weight.
@@ -77,10 +89,18 @@ public abstract class Graph {
 
     /**
      * Getter
+     * @return
+     */
+    public int getNbConnexions() {
+        return nbConnexions;
+    }
+
+    /**
+     * Get the start vertex
      * @return start vertex value
      */
-    public int getStartVertex() {
-        return startVertex;
+    public Vertex getStartVertex() {
+        return new Vertex(startVertex,0);
     }
 
     @Override
@@ -89,6 +109,9 @@ public abstract class Graph {
                 "nbVertices=" + nbVertices +
                 ", infiniteValue=" + infiniteValue +
                 ", startVertex=" + startVertex +
+                ", nbConnexions=" + nbConnexions +
                 '}';
     }
+
+
 }
