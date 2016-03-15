@@ -1,5 +1,8 @@
 package gti310.tp3;
 
+import gti310.tp3.model.Graph;
+import gti310.tp3.solver.GraphSolver;
+import gti310.tp3.solver.Solver;
 import gti310.tp3.writer.GraphReader;
 
 /**
@@ -21,7 +24,10 @@ public class Application {
 	 */
 	public static void main(String args[]) {
 		GraphReader gr = new GraphReader(args[1]);
-		System.out.println(gr.generateGraph().toString());
-		System.out.println("Unreal Networks Solver !");
+		Graph graph = gr.generateGraph();
+		System.out.println("graph.toString() = " + graph.toString());
+		Solver solver = new GraphSolver();
+		String s = (String) solver.solve(graph);
+		System.out.println("\nUnreal Networks Solver ! "+s);
 	}
 }
