@@ -1,15 +1,11 @@
 package gti310.tp3.writer;
 
-import gti310.tp3.model.CyclicGraph;
+import gti310.tp3.model.AdjacencyListGraph;
 import gti310.tp3.model.Graph;
-import gti310.tp3.model.Vertex;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by César Jeanroy on 2016-03-07.
@@ -42,7 +38,7 @@ public class GraphReader {
         if(generatedGraph!=null)
             return generatedGraph;
         else
-            generatedGraph = new CyclicGraph();
+            generatedGraph = new AdjacencyListGraph();
 
         try {
 

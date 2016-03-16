@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by César Jeanroy on 2016-03-07.
  */
-public class CyclicGraph extends Graph {
+public class AdjacencyListGraph extends Graph {
 
     //Adjacency List that contain the graph structure
     private HashMap<Integer,ArrayList<Vertex>> adjacencyList;
@@ -16,7 +16,7 @@ public class CyclicGraph extends Graph {
     /**
      * Default Constructor
      */
-    public CyclicGraph() {
+    public AdjacencyListGraph() {
         super();
         this.adjacencyList = new HashMap<Integer,ArrayList<Vertex>>();
     }
@@ -52,7 +52,7 @@ public class CyclicGraph extends Graph {
 
     @Override
     public String toString() {
-        return super.toString() + "\nCyclicGraph{" +
+        return super.toString() + "\nAdjacencyListGraph{" +
                 "\nadjacencyList= \n -----------"+printHashMap();
 
     }
