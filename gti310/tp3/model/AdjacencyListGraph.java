@@ -27,10 +27,17 @@ public class AdjacencyListGraph extends Graph {
         adjacencyList.put(vertexNumber,new ArrayList<Vertex>());
     }
 
+    /**
+     * O(n)
+     */
     @Override
     public ArrayList<Vertex> getNotVisitedNeighbours(Vertex v) {
 
         ArrayList<Vertex> neighboursList = new ArrayList<Vertex>();
+
+        //If we ask for a node that doesn't exists in the adjacency list we return null
+        if(!adjacencyList.containsKey(v.getVertexNumber()))
+            return null;
 
         for( Vertex vertex : adjacencyList.get(v.getVertexNumber())){
             if(!vertex.isAlreadyVisited())
@@ -40,6 +47,9 @@ public class AdjacencyListGraph extends Graph {
         return (neighboursList.size()>0) ? neighboursList:null;
     }
 
+    /*
+    * O(1)
+    */
     @Override
     public void addNeighbour(int sourceVertexNumber, int neighbourVertexNumber, int weight) {
         //We check that the source vertex is already in the adjacency list
@@ -48,6 +58,14 @@ public class AdjacencyListGraph extends Graph {
 
         adjacencyList.get(sourceVertexNumber).add(new Vertex(neighbourVertexNumber,weight));
         super.nbConnexions++;
+    }
+
+    /*
+    * O(1)
+    */
+    @Override
+    public int getNbVertices() {
+        return adjacencyList.size();
     }
 
     @Override

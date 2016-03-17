@@ -75,9 +75,7 @@ public abstract class Graph {
      * Getter
      * @return number of Vertices
      */
-    public int getNbVertices() {
-        return nbVertices;
-    }
+    public abstract int getNbVertices();
 
     /**
      * Getter
