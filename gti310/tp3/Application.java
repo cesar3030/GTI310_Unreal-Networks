@@ -41,7 +41,7 @@ public class Application {
 		System.out.println(solution.toString());
 		System.out.println("\nUnreal Networks Solver ! "+solution.getNbPathFound());
 		SolutionWriter sr = new SolutionWriter();
-		sr.write("media/cesar_solution.txt",solution);
+		sr.write(SOLUTION_FILE,solution);
 
 	}
 
