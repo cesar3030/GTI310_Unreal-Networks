@@ -36,7 +36,7 @@ public class AdjacencyListGraph extends Graph {
             if(!vertex.isAlreadyVisited())
                 neighboursList.add(vertex);
         }
-        //TODO: SORT the list for the smallest to the greatest number
+
         return (neighboursList.size()>0) ? neighboursList:null;
     }
 

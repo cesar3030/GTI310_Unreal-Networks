@@ -45,7 +45,7 @@ public class GraphSolver implements Solver<Graph,GraphSolution> {
      * while all the paths from the start to the start going through all the connections hasn't all been found.
      * @param vertex the vertex we are gonna visit
      */
-    private void visitVertex(Vertex vertex){
+    public void visitVertex(Vertex vertex){
 
         vertex.setAlreadyVisited(true);
 
