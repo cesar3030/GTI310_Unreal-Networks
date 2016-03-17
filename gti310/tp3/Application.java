@@ -16,6 +16,10 @@ import gti310.tp3.writer.SolutionWriter;
  */
 public class Application {
 
+	private static String PGR_NAME = null;
+	private static String SOURCE_FILE = null;
+	private static String SOLUTION_FILE = null;
+
 	/**
 	 * The Application's entry point.
 	 * 
@@ -26,6 +30,9 @@ public class Application {
 	 * @param args The array containing the arguments to the files.
 	 */
 	public static void main(String args[]) {
+
+		checkProgramArgumentsValidity(args);
+
 		Parser parser = new GraphParser();
 		Graph graph = (Graph) parser.parse(args[1]);
 		System.out.println("graph.toString() = " + graph.toString());
@@ -36,5 +43,34 @@ public class Application {
 		SolutionWriter sr = new SolutionWriter();
 		sr.write("media/cesar_solution.txt",solution);
 
+	}
+
+	/**
+	 * Method that check the validity of the given arguments
+	 * @param args
+     */
+	private static void checkProgramArgumentsValidity(String[] args){
+
+		if(args.length<3){
+			System.out.println("Arguments are missing\nexecution args: 0:programmeName, 1:path_Source_File, 2:path_Solution_File");
+			System.exit(0);
+		}
+
+		PGR_NAME = args[0];
+		SOURCE_FILE = args[1];
+		SOLUTION_FILE = args[2];
+
+		if(PGR_NAME == null){
+			System.out.println("Programme name is missing\nexecution args: 0:programmeName, 1:path_Source_File, 2:path_Solution_File");
+			System.exit(0);
+		}
+		if(SOURCE_FILE == null){
+			System.out.println("Source file is missing\nexecution args: 0:programmeName, 1:path_Source_File, 2:path_Solution_File");
+			System.exit(0);
+		}
+		if(SOLUTION_FILE == null){
+			System.out.println("Solution file is missing\nexecution args: 0:programmeName, 1:path_Source_File, 2:path_Solution_File");
+			System.exit(0);
+		}
 	}
 }
