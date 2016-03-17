@@ -1,4 +1,4 @@
-package gti310.tp3.writer;
+package gti310.tp3.parser;
 
 import gti310.tp3.model.AdjacencyListGraph;
 import gti310.tp3.model.Graph;
@@ -11,20 +11,16 @@ import java.io.IOException;
  * Created by César Jeanroy on 2016-03-07.
  * Class that reader a text file that contain graph information
  */
-public class GraphReader {
-
-    //Path to the file that contains graph information
-    private String path;
+public class GraphParser implements Parser<Graph>{
 
     //The graph generated from the file
     private Graph generatedGraph;
 
     /**
-     * Constructor with parameter
-     * @param path Path to the file that contains graph information
+     * Default Constructor
      */
-    public GraphReader(String path){
-        this.path = path;
+    public GraphParser(){
+
     }
 
 
@@ -33,7 +29,8 @@ public class GraphReader {
      * It it has already been generated, the method will return it.
      * @return
      */
-    public Graph generateGraph(){
+    @Override
+    public Graph parse(String filename) {
 
         if(generatedGraph!=null)
             return generatedGraph;
@@ -42,7 +39,7 @@ public class GraphReader {
 
         try {
 
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;
             int lineNum = 1;
 
@@ -89,4 +86,6 @@ public class GraphReader {
             generatedGraph.addNeighbour(source,neighbour,weight);
         }
     }
+
+
 }

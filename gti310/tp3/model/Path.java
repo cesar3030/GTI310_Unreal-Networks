@@ -48,7 +48,7 @@ public class Path {
     public String toString(){
         String result ="";
         for(Vertex v:verticesList)
-            result+=" "+v.getVertexNumber();
-        return result;
+            result+=v.getVertexNumber()+" ";
+        return result.substring(0, result.length()-1);
     }
 }
