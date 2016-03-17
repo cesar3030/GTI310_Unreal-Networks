@@ -32,6 +32,10 @@ public class AdjacencyListGraph extends Graph {
 
         ArrayList<Vertex> neighboursList = new ArrayList<Vertex>();
 
+        //If we ask for a node that doesn't exists in the adjacency list we return null
+        if(!adjacencyList.containsKey(v.getVertexNumber()))
+            return null;
+
         for( Vertex vertex : adjacencyList.get(v.getVertexNumber())){
             if(!vertex.isAlreadyVisited())
                 neighboursList.add(vertex);
@@ -48,6 +52,11 @@ public class AdjacencyListGraph extends Graph {
 
         adjacencyList.get(sourceVertexNumber).add(new Vertex(neighbourVertexNumber,weight));
         super.nbConnexions++;
+    }
+
+    @Override
+    public int getNbVertices() {
+        return adjacencyList.size();
     }
 
     @Override

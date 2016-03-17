@@ -10,7 +10,7 @@ import java.util.Stack;
 public class Path {
 
     //List of vertex that represents the path found
-    private ArrayList<Vertex> verticesList;
+    private ArrayList<Vertex> verticesList = null;
 
     /**
      * Default constructor
@@ -47,6 +47,7 @@ public class Path {
     @Override
     public String toString(){
         String result ="";
+
         for(Vertex v:verticesList)
             result+=v.getVertexNumber()+" ";
         return result.substring(0, result.length()-1);

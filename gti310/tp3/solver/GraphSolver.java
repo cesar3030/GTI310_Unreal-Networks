@@ -51,7 +51,7 @@ public class GraphSolver implements Solver<Graph,GraphSolution> {
 
         if(currentPath.firstElement().equals(vertex) && currentPath.size() == (graph.getNbConnexions()+1)){
 
-            printStack();
+            //printStack();
             solutionFound.addPath(new Path(currentPath));
             vertex.setAlreadyVisited(false);
             currentPath.pop();
@@ -100,6 +100,30 @@ public class GraphSolver implements Solver<Graph,GraphSolution> {
         for (Vertex v:a) {
             System.out.print(v.getVertexNumber()+" , ");
         }
+    }
+
+    public Stack<Vertex> getCurrentPath() {
+        return currentPath;
+    }
+
+    public void setCurrentPath(Stack<Vertex> currentPath) {
+        this.currentPath = currentPath;
+    }
+
+    public Graph getGraph() {
+        return graph;
+    }
+
+    public void setGraph(Graph graph) {
+        this.graph = graph;
+    }
+
+    public GraphSolution getSolutionFound() {
+        return solutionFound;
+    }
+
+    public void setSolutionFound(GraphSolution solutionFound) {
+        this.solutionFound = solutionFound;
     }
 }
 
